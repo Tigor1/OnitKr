@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Продукты</h3>
+    <form action="/product" method="GET">
+        <input type="text" name="name" placeholder="Введите название..."><br>
+        <button>Отправить</button>
+    </form>
+    <br>
+    <form action="/" method="GET">
+        <button>Сбросить</button>
+    </form>
+
+    <table class="styled-table" style="width:550px;border: 1px black;">
+        <tr>
+            <th>Код</th>
+            <th>Имя</th>
+            <th>Цена</th>
+            <th>Склад</th>
+        </tr>
+        {{#products}}
+        <tr>
+            <td>{{code}}</td>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td>{{storage}}</td>
+        </tr>
+        {{/products}}
+    </table>
+
+    <style>
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        th {
+            color: white;
+            background-color: black;
+        }
+
+        input {
+            font-size: 16px;
+            font-size: max(16px, 1em);
+            font-family: inherit;
+            padding: 0.25em 0.5em;
+            background-color: #fff;
+            border: 2px solid var(--input-border);
+            border-radius: 4px;
+        }
+    </style>
+</body>
+</html>
